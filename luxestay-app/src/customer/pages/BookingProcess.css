@@ -1,0 +1,214 @@
+/* Booking Process Styles */
+
+.booking-page {
+    padding: 60px 20px;
+    animation: fadeIn 0.4s ease-out;
+}
+
+/* Progress Bar */
+.booking-progress {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 60px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    z-index: 2;
+    color: var(--text-secondary);
+}
+
+.step-item.active {
+    color: var(--primary-gold);
+}
+
+.step-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    transition: all 0.3s;
+}
+
+.step-item.active .step-icon {
+    border-color: var(--primary-gold);
+    background: var(--primary-gold);
+    color: white;
+}
+
+.step-line {
+    height: 2px;
+    flex: 1;
+    background: #ddd;
+    margin: 0 10px 24px;
+    /* Align with icon center somewhat */
+}
+
+/* Layout */
+.booking-content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+}
+
+.form-card {
+    padding: 30px;
+}
+
+.form-card h2 {
+    margin-bottom: 24px;
+    font-size: 24px;
+    color: var(--text-primary);
+}
+
+.step-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-actions-right {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.form-actions-split {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+/* Summary */
+.summary-card {
+    background: #f9fafb;
+    border: 1px solid #eee;
+    padding: 24px;
+    position: sticky;
+    top: 90px;
+}
+
+.summary-card h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.summary-room {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.summary-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.summary-total {
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 18px;
+    color: var(--text-primary);
+}
+
+.total-price {
+    color: var(--primary-gold);
+    font-size: 24px;
+}
+
+@media (max-width: 768px) {
+    .booking-content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .booking-summary {
+        order: -1;
+        /* Show summary first on mobile? Or maybe keeping it below is better */
+    }
+}
+
+/* ============================================
+   DARK MODE SUPPORT
+   ============================================ */
+[data-theme="dark"] .booking-page {
+    background: var(--bg-primary);
+}
+
+[data-theme="dark"] .step-icon {
+    background: var(--bg-card);
+    border-color: var(--border-color);
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .step-item.active .step-icon {
+    background: var(--primary-gold);
+    border-color: var(--primary-gold);
+    color: #1a1a1a;
+}
+
+[data-theme="dark"] .step-line {
+    background: var(--border-color);
+}
+
+[data-theme="dark"] .form-card {
+    background: var(--bg-card);
+}
+
+[data-theme="dark"] .form-card h2 {
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .summary-card {
+    background: var(--bg-card);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .summary-card h3 {
+    color: var(--text-primary);
+    border-bottom-color: var(--border-color);
+}
+
+[data-theme="dark"] .summary-room span {
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .summary-total {
+    border-top-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .input-group label {
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .payment-preview p {
+    color: var(--text-secondary);
+}

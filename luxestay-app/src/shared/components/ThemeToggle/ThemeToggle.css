@@ -1,0 +1,115 @@
+/* Theme Toggle Styles */
+
+.theme-toggle {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.theme-toggle:hover {
+    background: var(--bg-card);
+    border-color: var(--primary-gold);
+    transform: scale(1.05);
+}
+
+.theme-toggle:active {
+    transform: scale(0.95);
+}
+
+.toggle-icon {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 20px;
+    color: var(--text-primary);
+}
+
+.toggle-icon.hidden {
+    opacity: 0;
+    transform: scale(0.5) rotate(-90deg);
+}
+
+.toggle-icon:not(.hidden) {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+}
+
+/* Customer variant - for light backgrounds */
+.theme-toggle.customer {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.theme-toggle.customer .toggle-icon {
+    color: white;
+}
+
+.theme-toggle.customer:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: var(--primary-gold);
+}
+
+/* Compact variant */
+.theme-toggle.compact {
+    width: 36px;
+    height: 36px;
+}
+
+.theme-toggle.compact .toggle-icon {
+    font-size: 16px;
+}
+
+/* Float variant - fixed position */
+.theme-toggle.float {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    background: var(--bg-card);
+}
+
+.theme-toggle.float:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Sun icon animation */
+[data-theme="light"] .toggle-icon:not(.hidden) svg {
+    animation: sun-rays 0.5s ease-out;
+}
+
+@keyframes sun-rays {
+    0% {
+        transform: rotate(-90deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* Moon icon animation */
+[data-theme="dark"] .toggle-icon:not(.hidden) svg {
+    animation: moon-rise 0.5s ease-out;
+}
+
+@keyframes moon-rise {
+    0% {
+        transform: rotate(90deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}

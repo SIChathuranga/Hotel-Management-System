@@ -32,13 +32,13 @@ const Availability = () => {
     const loadData = async () => {
         try {
             setLoading(true);
-            const [roomsRes, bookingsData] = await Promise.all([
+            const [roomsRes, bookingsRes] = await Promise.all([
                 getRooms(),
                 getAllBookings()
             ]);
 
             if (roomsRes.success) setRooms(roomsRes.data);
-            setBookings(bookingsData);
+            if (bookingsRes.success) setBookings(bookingsRes.data);
         } catch (error) {
             console.error('Error loading availability data:', error);
         } finally {

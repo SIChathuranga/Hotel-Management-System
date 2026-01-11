@@ -22,7 +22,7 @@ import {
     Card,
     Spinner
 } from '../../shared/components/ui';
-import { getAllBookings } from '../../firebase/services/bookingService';
+import { getBookings } from '../../firebase/services/bookingService';
 import toast from 'react-hot-toast';
 import './Bookings.css';
 
@@ -39,8 +39,12 @@ const Bookings = () => {
     const loadBookings = async () => {
         try {
             setLoading(true);
-            const data = await getAllBookings();
-            setBookings(data);
+            const res = await getBookings();
+            if (res.success) {
+                setBookings(res.data);
+            } else {
+                toast.error(res.error || 'Failed to load bookings');
+            }
         } catch (error) {
             console.error('Error loading bookings:', error);
             toast.error('Failed to load bookings');

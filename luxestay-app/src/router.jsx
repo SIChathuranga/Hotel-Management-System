@@ -52,6 +52,14 @@ import Billing from './admin/pages/Billing';
 import InvoiceForm from './admin/pages/InvoiceForm';
 import InvoiceDetails from './admin/pages/InvoiceDetails';
 import Reports from './admin/pages/Reports';
+import Settings from './admin/pages/Settings';
+
+// Customer Pages
+import CustomerLayout from './customer/layouts/CustomerLayout';
+import Home from './customer/pages/Home';
+import RoomsList from './customer/pages/Rooms';
+import BookingProcess from './customer/pages/BookingProcess';
+import Profile from './customer/pages/Profile';
 
 // Placeholder component for pages not yet implemented
 const PlaceholderPage = ({ title }) => (
@@ -133,6 +141,15 @@ const router = createBrowserRouter([
             {
                 path: 'availability', // New availability route
                 element: <Availability />
+            },
+            // Settings (Phase 9)
+            {
+                path: 'settings',
+                element: <Settings />
+            },
+            {
+                path: 'profile',
+                element: <Settings /> // Reuse settings page
             },
             {
                 path: 'bookings/checkin',
@@ -250,7 +267,7 @@ const router = createBrowserRouter([
             // Reports
             {
                 path: 'reports',
-                element: <PlaceholderPage title="Reports Overview" />
+                element: <Reports />
             },
             {
                 path: 'reports/occupancy',
@@ -265,17 +282,32 @@ const router = createBrowserRouter([
                 element: <PlaceholderPage title="Guest Report" />
             },
             // Settings
-            {
-                path: 'settings',
-                element: <PlaceholderPage title="Settings" />
-            }
+
         ]
     },
 
-    // Customer Portal Routes (to be implemented)
+    // Customer Portal Routes
     {
         path: '/',
-        element: <PlaceholderPage title="Customer Portal - Coming Soon" />
+        element: <CustomerLayout />,
+        children: [
+            {
+                index: true,
+                element: <Home />
+            },
+            {
+                path: 'rooms',
+                element: <RoomsList />
+            },
+            {
+                path: 'book/:roomId',
+                element: <BookingProcess />
+            },
+            {
+                path: 'profile',
+                element: <Profile />
+            }
+        ]
     },
 
     // Catch all - redirect to home

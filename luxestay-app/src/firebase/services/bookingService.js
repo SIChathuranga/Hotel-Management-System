@@ -119,35 +119,36 @@ const MOCK_BOOKINGS = [
 ];
 
 // Helper to get all bookings
-export const getAllBookings = async () => {
+export const getBookings = async () => {
     if (!isFirebaseConfigured()) {
         // Return mock data with delay simulation
         return new Promise(resolve => {
-            setTimeout(() => resolve(MOCK_BOOKINGS), 800);
+            setTimeout(() => resolve({ success: true, data: MOCK_BOOKINGS }), 800);
         });
     }
 
     try {
         const q = query(collection(db, COLLECTION_NAME), orderBy('createdAt', 'desc'));
         const querySnapshot = await getDocs(q);
-        return querySnapshot.docs.map(doc => ({
+        const bookings = querySnapshot.docs.map(doc => ({
             id: doc.id,
             ...doc.data()
         }));
+        return { success: true, data: bookings };
     } catch (error) {
         console.error('Error fetching bookings:', error);
-        throw error;
+        return { success: false, error: error.message };
     }
 };
 
 // Helper to get a single booking
 export const getBookingById = async (id) => {
     if (!isFirebaseConfigured()) {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             const booking = MOCK_BOOKINGS.find(b => b.id === id);
             setTimeout(() => {
-                if (booking) resolve(booking);
-                else reject(new Error('Booking not found'));
+                if (booking) resolve({ success: true, data: booking });
+                else resolve({ success: false, error: 'Booking not found' });
             }, 500);
         });
     }
@@ -156,13 +157,13 @@ export const getBookingById = async (id) => {
         const docRef = doc(db, COLLECTION_NAME, id);
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
-            return { id: docSnap.id, ...docSnap.data() };
+            return { success: true, data: { id: docSnap.id, ...docSnap.data() } };
         } else {
-            throw new Error('Booking not found');
+            return { success: false, error: 'Booking not found' };
         }
     } catch (error) {
         console.error('Error fetching booking:', error);
-        throw error;
+        return { success: false, error: error.message };
     }
 };
 
@@ -176,9 +177,9 @@ export const createBooking = async (bookingData) => {
                 ...bookingData,
                 createdAt: new Date().toISOString()
             };
-            // In a real app we would update the mock array, but here we just return the new object
-            // MOCK_BOOKINGS.unshift(newBooking); 
-            setTimeout(() => resolve(newBooking), 1000);
+            // Update mock array for demo persistence
+            MOCK_BOOKINGS.unshift(newBooking);
+            setTimeout(() => resolve({ success: true, data: newBooking }), 1000);
         });
     }
 
@@ -190,10 +191,10 @@ export const createBooking = async (bookingData) => {
             updatedAt: Timestamp.now()
         };
         const docRef = await addDoc(collection(db, COLLECTION_NAME), enrichedData);
-        return { id: docRef.id, ...enrichedData };
+        return { success: true, data: { id: docRef.id, ...enrichedData } };
     } catch (error) {
         console.error('Error creating booking:', error);
-        throw error;
+        return { success: false, error: error.message };
     }
 };
 
@@ -242,3 +243,6 @@ export const deleteBooking = async (id) => {
 };
 
 export const getMockBookings = () => MOCK_BOOKINGS;
+
+// Alias for backward compatibility
+export const getAllBookings = getBookings;

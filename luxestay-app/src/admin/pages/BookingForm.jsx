@@ -79,8 +79,9 @@ const BookingForm = () => {
                 if (roomTypesRes.success) setRoomTypes(roomTypesRes.data);
 
                 if (isEditMode) {
-                    const booking = await getBookingById(id);
-                    if (booking) {
+                    const res = await getBookingById(id);
+                    if (res.success) {
+                        const booking = res.data;
                         // Format dates for input fields
                         const formattedBooking = {
                             ...booking,
@@ -91,6 +92,9 @@ const BookingForm = () => {
                         Object.keys(formattedBooking).forEach(key => {
                             setValue(key, formattedBooking[key]);
                         });
+                    } else {
+                        toast.error('Booking not found');
+                        navigate('/admin/bookings');
                     }
                 }
             } catch (error) {
@@ -138,14 +142,22 @@ const BookingForm = () => {
             };
 
             if (isEditMode) {
-                await updateBooking(id, bookingData);
-                toast.success('Booking updated successfully');
+                const res = await updateBooking(id, bookingData);
+                if (res.success) {
+                    toast.success('Booking updated successfully');
+                    navigate('/admin/bookings');
+                } else {
+                    toast.error(res.error || 'Failed to update booking');
+                }
             } else {
-                await createBooking(bookingData);
-                toast.success('Booking created successfully');
+                const res = await createBooking(bookingData);
+                if (res.success) {
+                    toast.success('Booking created successfully');
+                    navigate('/admin/bookings');
+                } else {
+                    toast.error(res.error || 'Failed to create booking');
+                }
             }
-
-            navigate('/admin/bookings');
         } catch (error) {
             console.error('Error saving booking:', error);
             toast.error('Failed to save booking');

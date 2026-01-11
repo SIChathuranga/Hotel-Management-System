@@ -1,0 +1,188 @@
+/* Profile Styles */
+
+.profile-page {
+    padding: 60px 20px;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+.profile-header h1 {
+    font-size: 32px;
+    color: var(--text-primary);
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 40px;
+}
+
+.user-card {
+    text-align: center;
+    padding: 30px;
+}
+
+.section-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+}
+
+/* Booking Item */
+.bookings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.booking-item-card {
+    padding: 24px;
+    transition: transform 0.2s;
+}
+
+.booking-item-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.booking-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px dashed #eee;
+}
+
+.booking-id {
+    font-family: monospace;
+    font-weight: bold;
+    color: var(--text-secondary);
+}
+
+.pill-confirmed {
+    background: #d1fae5;
+    color: #065f46;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.pill-cancelled {
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.pill-pending {
+    background: #fef3c7;
+    color: #92400e;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+.booking-body {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.info-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.value {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.value.price {
+    color: var(--primary-gold);
+    font-weight: bold;
+}
+
+.text-right {
+    text-align: right;
+}
+
+@media (max-width: 768px) {
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .booking-body {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* ============================================
+   DARK MODE SUPPORT
+   ============================================ */
+[data-theme="dark"] .profile-page {
+    background: var(--bg-primary);
+}
+
+[data-theme="dark"] .profile-header {
+    border-bottom-color: var(--border-color);
+}
+
+[data-theme="dark"] .user-card {
+    background: var(--bg-card);
+}
+
+[data-theme="dark"] .booking-item-card {
+    background: var(--bg-card);
+}
+
+[data-theme="dark"] .booking-item-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .booking-header {
+    border-bottom-color: var(--border-color);
+}
+
+[data-theme="dark"] .pill-confirmed {
+    background: rgba(16, 185, 129, 0.2);
+    color: #34d399;
+}
+
+[data-theme="dark"] .pill-cancelled {
+    background: rgba(239, 68, 68, 0.2);
+    color: #f87171;
+}
+
+[data-theme="dark"] .pill-pending {
+    background: rgba(245, 158, 11, 0.2);
+    color: #fbbf24;
+}
+
+[data-theme="dark"] .empty-state {
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .empty-state a {
+    color: var(--primary-gold);
+}
