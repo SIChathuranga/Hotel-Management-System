@@ -1,0 +1,246 @@
+/* ========================================
+   Room Types Page Styles
+   ======================================== */
+
+.room-types-page {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Room Types Grid */
+.room-types-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: var(--space-5);
+}
+
+/* Room Type Card */
+.room-type-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.room-type-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: var(--space-3);
+}
+
+.room-type-name {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.room-type-actions {
+    display: flex;
+    gap: var(--space-2);
+}
+
+.room-type-action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: var(--bg-tertiary);
+    border: none;
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.room-type-action-btn:hover {
+    background: var(--primary-gold);
+    color: var(--primary-dark);
+}
+
+.room-type-action-btn.delete:hover {
+    background: var(--error);
+    color: white;
+}
+
+.room-type-description {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+    margin: 0 0 var(--space-4);
+    flex: 1;
+}
+
+/* Room Type Details */
+.room-type-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--border-color-light);
+}
+
+.room-type-detail {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+}
+
+.room-type-detail svg {
+    color: var(--primary-gold);
+}
+
+/* Amenities */
+.room-type-amenities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+.amenity-tag {
+    padding: var(--space-1) var(--space-2);
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    font-size: var(--text-xs);
+    color: var(--text-secondary);
+}
+
+.amenity-more {
+    padding: var(--space-1) var(--space-2);
+    background: rgba(212, 175, 55, 0.15);
+    border-radius: var(--radius-md);
+    font-size: var(--text-xs);
+    color: var(--primary-gold);
+    font-weight: var(--font-medium);
+}
+
+/* Skeleton */
+.skeleton-card {
+    min-height: 250px;
+}
+
+.skeleton-content {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            var(--bg-tertiary) 25%,
+            var(--bg-secondary) 50%,
+            var(--bg-tertiary) 75%);
+    background-size: 400% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+    border-radius: var(--radius-lg);
+}
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: var(--z-modal);
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: var(--bg-card);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-2xl);
+    z-index: calc(var(--z-modal) + 1);
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-5) var(--space-6);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.modal-header h2 {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.modal-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: var(--bg-tertiary);
+    border: none;
+    border-radius: var(--radius-lg);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.modal-close:hover {
+    background: var(--error);
+    color: white;
+}
+
+.modal-body {
+    padding: var(--space-6);
+}
+
+.modal-body .form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+}
+
+.modal-body .form-group {
+    margin-bottom: var(--space-4);
+}
+
+.modal-body .amenities-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--space-3);
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--border-color);
+    margin-top: var(--space-5);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .room-types-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal {
+        width: 95%;
+        max-height: 85vh;
+    }
+
+    .modal-body .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-footer {
+        flex-direction: column-reverse;
+    }
+}

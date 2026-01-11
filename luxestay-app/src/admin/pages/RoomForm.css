@@ -1,0 +1,282 @@
+/* ========================================
+   Room Form Page Styles
+   ======================================== */
+
+.room-form-page {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.room-form-page .page-header {
+    margin-bottom: var(--space-6);
+}
+
+.room-form-page .page-header-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+/* Form Grid */
+.room-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: var(--space-6);
+    align-items: start;
+}
+
+.room-form-main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+}
+
+.room-form-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    position: sticky;
+    top: var(--space-6);
+}
+
+/* Form Card */
+.form-card {
+    margin-bottom: 0;
+}
+
+/* Form Grid */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+}
+
+/* Form Group */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-label {
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    color: var(--text-primary);
+}
+
+/* Form Select */
+.form-select {
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    background: var(--bg-input);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    font-size: var(--text-sm);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right var(--space-3) center;
+}
+
+.form-select:focus {
+    outline: none;
+    border-color: var(--primary-gold);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+.form-select.error {
+    border-color: var(--error);
+}
+
+/* Form Textarea */
+.form-textarea {
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    background: var(--bg-input);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    font-size: var(--text-sm);
+    color: var(--text-primary);
+    font-family: inherit;
+    resize: vertical;
+    min-height: 100px;
+    transition: all var(--transition-fast);
+}
+
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--primary-gold);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+/* Form Error */
+.form-error {
+    font-size: var(--text-xs);
+    color: var(--error);
+}
+
+/* Amenities Grid */
+.amenities-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+.amenity-chip {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.amenity-chip input {
+    display: none;
+}
+
+.amenity-chip:hover {
+    border-color: var(--primary-gold);
+    color: var(--primary-gold);
+}
+
+.amenity-chip.selected {
+    background: rgba(212, 175, 55, 0.15);
+    border-color: var(--primary-gold);
+    color: var(--primary-gold);
+}
+
+/* Images Upload */
+.images-upload {
+    margin-bottom: var(--space-4);
+}
+
+.image-upload-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-5);
+    background: var(--bg-tertiary);
+    border: 2px dashed var(--border-color);
+    border-radius: var(--radius-lg);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.image-upload-btn:hover {
+    border-color: var(--primary-gold);
+    color: var(--primary-gold);
+}
+
+/* Images Preview */
+.images-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: var(--space-3);
+}
+
+.image-preview {
+    position: relative;
+    aspect-ratio: 4/3;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--bg-tertiary);
+}
+
+.image-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-remove-btn {
+    position: absolute;
+    top: var(--space-2);
+    right: var(--space-2);
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--error);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+}
+
+.image-preview:hover .image-remove-btn {
+    opacity: 1;
+}
+
+/* Images Empty */
+.images-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--space-8);
+    text-align: center;
+}
+
+.images-empty .empty-icon {
+    font-size: 48px;
+    color: var(--text-muted);
+    margin-bottom: var(--space-3);
+}
+
+.images-empty p {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin: 0;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .room-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .room-form-sidebar {
+        position: static;
+        order: -1;
+    }
+
+    .form-actions {
+        flex-direction: row;
+    }
+}
+
+@media (max-width: 640px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,192 @@
+/* ========================================
+   Admin Header Styles
+   ======================================== */
+
+.admin-header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+    padding: 0 var(--space-6);
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border-color);
+    z-index: var(--z-sticky);
+}
+
+/* Header Left */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+.header-menu-btn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-lg);
+    color: var(--text-primary);
+    font-size: var(--text-xl);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.header-menu-btn:hover {
+    background: var(--bg-tertiary);
+}
+
+.header-title {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+    margin: 0;
+}
+
+/* Header Right */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+/* Search */
+.header-search {
+    position: relative;
+    width: 280px;
+}
+
+.header-search-icon {
+    position: absolute;
+    left: var(--space-3);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    font-size: var(--text-lg);
+    pointer-events: none;
+}
+
+.header-search-input {
+    width: 100%;
+    padding: var(--space-2) var(--space-4);
+    padding-left: var(--space-10);
+    background: var(--bg-tertiary);
+    border: 1px solid transparent;
+    border-radius: var(--radius-lg);
+    font-size: var(--text-sm);
+    color: var(--text-primary);
+    transition: all var(--transition-fast);
+}
+
+.header-search-input::placeholder {
+    color: var(--text-muted);
+}
+
+.header-search-input:focus {
+    outline: none;
+    background: var(--bg-card);
+    border-color: var(--primary-gold);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+/* Icon Buttons */
+.header-icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-lg);
+    color: var(--text-secondary);
+    font-size: var(--text-lg);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    position: relative;
+}
+
+.header-icon-btn:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+/* Notification Badge */
+.header-notification-btn {
+    position: relative;
+}
+
+.header-notification-badge {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 var(--space-1);
+    background: var(--error);
+    border-radius: var(--radius-full);
+    font-size: 11px;
+    font-weight: var(--font-semibold);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* User Avatar */
+.header-user {
+    margin-left: var(--space-2);
+}
+
+.header-user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-dark) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--font-semibold);
+    color: var(--primary-dark);
+    cursor: pointer;
+    overflow: hidden;
+    border: 2px solid transparent;
+    transition: border-color var(--transition-fast);
+}
+
+.header-user-avatar:hover {
+    border-color: var(--primary-gold);
+}
+
+.header-user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Responsive */
+@media (max-width: 1023px) {
+    .header-menu-btn {
+        display: flex;
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-header {
+        padding: 0 var(--space-4);
+    }
+
+    .header-search {
+        display: none;
+    }
+
+    .header-title {
+        font-size: var(--text-lg);
+    }
+}

@@ -1,0 +1,161 @@
+/* Billing Page Styles */
+
+.billing-page {
+    animation: fadeIn 0.4s ease-out;
+}
+
+.billing-page .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-6);
+}
+
+.invoices-card {
+    padding: 0;
+    overflow: hidden;
+}
+
+.filters-bar {
+    padding: var(--space-4);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.search-box {
+    flex: 1;
+    min-width: 250px;
+}
+
+.select-input {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.billing-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.billing-table th,
+.billing-table td {
+    padding: var(--space-4);
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.billing-table th {
+    background: var(--bg-tertiary);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.billing-table td {
+    font-size: var(--text-sm);
+    color: var(--text-primary);
+    vertical-align: middle;
+}
+
+.font-mono {
+    font-family: monospace;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+.text-primary {
+    color: var(--primary-gold);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-gray-400 {
+    color: var(--text-muted);
+}
+
+.py-8 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+/* Badges */
+.badge {
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.badge.success {
+    background: #d1fae5;
+    color: #059669;
+}
+
+.badge.warning {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.badge.error {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.badge.neutral {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+/* Actions */
+.actions-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.icon-btn-sm {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-secondary);
+    font-size: 16px;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.icon-btn-sm:hover {
+    color: var(--primary-gold);
+    background: var(--bg-tertiary);
+}
+
+.action-btn-text {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.action-btn-text.pay {
+    color: var(--primary-gold);
+}
+
+.action-btn-text.pay:hover {
+    text-decoration: underline;
+}

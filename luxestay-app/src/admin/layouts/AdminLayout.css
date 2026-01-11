@@ -1,0 +1,62 @@
+/* ========================================
+   Admin Layout Styles
+   ======================================== */
+
+.admin-layout {
+    display: flex;
+    min-height: 100vh;
+    background: var(--bg-secondary);
+}
+
+.admin-main {
+    flex: 1;
+    margin-left: var(--sidebar-width);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: margin-left var(--transition-base);
+}
+
+/* When sidebar is collapsed */
+.sidebar-collapsed~.admin-main {
+    margin-left: var(--sidebar-collapsed-width);
+}
+
+/* Development Mode Banner */
+.dev-mode-banner {
+    padding: var(--space-3) var(--space-6);
+    background: linear-gradient(90deg, #F59E0B, #D97706);
+    color: white;
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    text-align: center;
+}
+
+.dev-mode-banner a {
+    color: white;
+    text-decoration: underline;
+    margin-left: var(--space-2);
+}
+
+.admin-content {
+    flex: 1;
+    padding: var(--space-6);
+    overflow-x: hidden;
+}
+
+/* Responsive */
+@media (max-width: 1023px) {
+    .admin-main {
+        margin-left: 0;
+    }
+
+    .admin-content {
+        padding: var(--space-4);
+    }
+}
+
+@media (max-width: 640px) {
+    .admin-content {
+        padding: var(--space-3);
+    }
+}

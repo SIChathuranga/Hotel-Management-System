@@ -1,0 +1,265 @@
+/* Availability Calendar Styles */
+
+.availability-page {
+    animation: fadeIn 0.4s ease-out;
+}
+
+.availability-page.loading {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Header */
+.availability-page .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-6);
+}
+
+.calendar-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    background: var(--bg-secondary);
+    padding: var(--space-2);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+}
+
+.current-month {
+    display: flex;
+    align-items: center;
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+    min-width: 140px;
+    justify-content: center;
+}
+
+.mr-2 {
+    margin-right: var(--space-2);
+}
+
+/* Calendar Card & Grid */
+.calendar-card {
+    padding: 0;
+    overflow: hidden;
+}
+
+.scheduler-container {
+    overflow-x: auto;
+    position: relative;
+    /* Grid Layout */
+    display: grid;
+    /* Width based on content: roughly 150px for room col + ~30-31 columns for days */
+    /* Min-width ensures scroll */
+    min-width: 100%;
+}
+
+/* Header Row */
+.scheduler-header {
+    display: flex;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--bg-tertiary);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+/* Room Column Header/Cell (Sticky Left) */
+.room-col-header,
+.room-col-cell {
+    flex: 0 0 150px;
+    width: 150px;
+    position: sticky;
+    left: 0;
+    background: var(--bg-secondary);
+    /* Match bg */
+    z-index: 20;
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--space-3) var(--space-4);
+}
+
+.room-col-header {
+    background: var(--bg-tertiary);
+    font-weight: var(--font-bold);
+    color: var(--text-muted);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    z-index: 30;
+    /* Higher than cells */
+}
+
+.room-col-cell {
+    border-bottom: 1px solid var(--border-color);
+    height: 60px;
+}
+
+.room-number {
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+}
+
+.room-type {
+    font-size: var(--text-xs);
+    color: var(--text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Day Columns */
+.day-col-header {
+    flex: 0 0 40px;
+    /* Width of day column */
+    width: 40px;
+    text-align: center;
+    padding: var(--space-2) 0;
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.day-col-header.today {
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--primary-gold);
+}
+
+.day-name {
+    font-size: 10px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+}
+
+.day-number {
+    font-size: var(--text-sm);
+    font-weight: var(--font-bold);
+}
+
+/* Rows and Cells */
+.scheduler-row {
+    display: flex;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.scheduler-row:last-child {
+    border-bottom: none;
+}
+
+.day-cell {
+    flex: 0 0 40px;
+    width: 40px;
+    height: 60px;
+    border-right: 1px solid var(--border-color);
+    padding: 6px 0;
+    /* Vertical padding for bar */
+    position: relative;
+}
+
+.day-cell.today {
+    background: rgba(212, 175, 55, 0.05);
+}
+
+/* Booking Bar */
+.booking-bar {
+    height: 100%;
+    width: 100%;
+    /* Continues to next cell visually if they touch */
+    /* Use margins to separate slightly or negative margins to connect? */
+    /* To connect seamlessly, width 100% + border compensation. */
+    /* Ideally we assume full fill */
+
+    position: absolute;
+    /* Actually let's make it fill */
+    top: 6px;
+    bottom: 6px;
+    left: 0;
+    right: 0;
+    height: auto;
+
+    display: flex;
+    align-items: center;
+    padding-left: 4px;
+    overflow: hidden;
+    white-space: nowrap;
+    z-index: 5;
+    opacity: 0.8;
+}
+
+/* Colors matching Tailwind classes used in JSX */
+.bg-blue-500 {
+    background: #3B82F6;
+    color: white;
+}
+
+.bg-green-500 {
+    background: #10B981;
+    color: white;
+}
+
+.bg-yellow-500 {
+    background: #F59E0B;
+    color: black;
+}
+
+.bg-red-500 {
+    background: #EF4444;
+    color: white;
+}
+
+.bg-gray-400 {
+    background: #9CA3AF;
+    color: white;
+}
+
+.bg-indigo-500 {
+    background: #6366F1;
+    color: white;
+}
+
+.booking-bar.start {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    margin-left: 4px;
+    /* Visible start gap */
+}
+
+/* If it ends (not easy to detect without lookahead), we rely on next cell being empty */
+/* But here we just fill. */
+
+.booking-name {
+    font-size: 10px;
+    font-weight: bold;
+    color: inherit;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Legend */
+.legend {
+    display: flex;
+    gap: var(--space-6);
+    margin-top: var(--space-4);
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: var(--space-2);
+}

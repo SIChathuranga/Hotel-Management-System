@@ -1,9 +1,0 @@
-{
-  "extends": ["airbnb-base", "plugin:prettier/recommended"],
-  "plugins": ["prettier"],
-  "rules": {
-    "prettier/prettier": ["off"],
-    "no-shadow": "off",
-    "class-methods-use-this": "off"
-  }
-}

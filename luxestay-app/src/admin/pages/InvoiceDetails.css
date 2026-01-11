@@ -1,0 +1,177 @@
+/* Invoice Details Styles */
+
+.invoice-details-page {
+    animation: fadeIn 0.4s ease-out;
+}
+
+.invoice-details-page .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-6);
+}
+
+.header-actions {
+    display: flex;
+    gap: var(--space-3);
+}
+
+/* Paper Design */
+.invoice-paper {
+    background: white;
+    padding: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.invoice-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--primary-gold);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.brand h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-gold);
+    margin: 0;
+}
+
+.brand p {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.meta {
+    text-align: right;
+}
+
+.meta h3 {
+    font-size: 28px;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+    margin: 0 0 10px 0;
+}
+
+.meta p {
+    margin: 4px 0;
+    font-size: 14px;
+}
+
+.status-text {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.status-text.paid {
+    color: #059669;
+}
+
+.status-text.unpaid {
+    color: #dc2626;
+}
+
+.status-text.partial {
+    color: #d97706;
+}
+
+.bill-to {
+    margin-bottom: 30px;
+}
+
+.bill-to h4 {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+
+.guest-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Table */
+.invoice-items-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+.invoice-items-table th,
+.invoice-items-table td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.invoice-items-table th {
+    text-align: left;
+    background: #f9fafb;
+    font-weight: 600;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.invoice-items-table tfoot td {
+    border: none;
+    padding-top: 8px;
+}
+
+.invoice-items-table .grand-total td {
+    border-top: 2px solid var(--text-primary);
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 16px;
+}
+
+.payments-history {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px dashed #ccc;
+}
+
+.payments-history h4 {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.invoice-footer {
+    text-align: center;
+    margin-top: 60px;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.btn-danger-outline {
+    color: #dc2626;
+    border-color: #dc2626;
+}
+
+.btn-danger-outline:hover {
+    background: #fee2e2;
+}
+
+@media print {
+
+    .no-print,
+    .sidebar,
+    .header {
+        display: none !important;
+    }
+
+    .invoice-details-page {
+        margin: 0;
+        padding: 0;
+    }
+
+    .invoice-paper {
+        box-shadow: none;
+        max-width: 100%;
+        padding: 0;
+    }
+}

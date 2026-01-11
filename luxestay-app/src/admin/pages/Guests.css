@@ -1,0 +1,261 @@
+/* Guests Page Styles */
+
+.guests-page {
+    animation: fadeIn 0.4s ease-out;
+}
+
+.guests-page .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-6);
+}
+
+/* Filters */
+.filters-card {
+    margin-bottom: var(--space-6);
+    padding: var(--space-4);
+}
+
+.filters-grid {
+    display: flex;
+    gap: var(--space-4);
+}
+
+.search-wrapper {
+    flex: 1;
+    max-width: 400px;
+}
+
+.filter-wrapper {
+    width: 200px;
+}
+
+/* Guests Grid */
+.guests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-6);
+}
+
+/* Guest Card */
+.guest-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.guest-card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.guest-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--bg-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--border-color);
+    flex-shrink: 0;
+}
+
+.guest-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar-initial {
+    font-size: var(--text-lg);
+    font-weight: var(--font-bold);
+    color: var(--primary-gold);
+}
+
+.guest-header-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.guest-name {
+    font-size: var(--text-base);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.guest-nationality {
+    font-size: var(--text-xs);
+    color: var(--text-secondary);
+}
+
+/* Loyalty Badge */
+.loyalty-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    font-size: 10px;
+    font-weight: var(--font-bold);
+    text-transform: uppercase;
+}
+
+.badge-bronze {
+    background: #CD7F32;
+    color: white;
+}
+
+.badge-silver {
+    background: #C0C0C0;
+    color: black;
+}
+
+.badge-gold {
+    background: #FFD700;
+    color: black;
+}
+
+.badge-platinum {
+    background: #E5E4E2;
+    color: black;
+    border: 1px solid #aaa;
+}
+
+.badge-default {
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+}
+
+.w-3 {
+    width: 12px;
+}
+
+.h-3 {
+    height: 12px;
+}
+
+.mr-1 {
+    margin-right: 4px;
+}
+
+/* Guest Info Body */
+.guest-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+    flex: 1;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+}
+
+.info-icon {
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
+
+.truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Stats */
+.guest-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--space-2);
+    background: var(--bg-tertiary);
+    padding: var(--space-3);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-4);
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.stat-value {
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+    font-size: var(--text-sm);
+}
+
+.stat-label {
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+/* Actions */
+.guest-card-actions {
+    display: flex;
+    gap: var(--space-2);
+    margin-top: auto;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.icon-btn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    background: transparent;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    color: var(--text-secondary);
+}
+
+.icon-btn:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.icon-btn.edit:hover {
+    color: var(--primary-gold);
+    border-color: var(--primary-gold);
+}
+
+.icon-btn.delete:hover {
+    color: var(--error);
+    border-color: var(--error);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .filters-grid {
+        flex-direction: column;
+    }
+
+    .filter-wrapper {
+        width: 100%;
+    }
+}

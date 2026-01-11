@@ -1,0 +1,214 @@
+/* ========================================
+   Loader Component Styles
+   ======================================== */
+
+/* Spinner Loader */
+.loader-spinner {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader-spinner-sm {
+    width: 20px;
+    height: 20px;
+}
+
+.loader-spinner-md {
+    width: 40px;
+    height: 40px;
+}
+
+.loader-spinner-lg {
+    width: 60px;
+    height: 60px;
+}
+
+.loader-spinner-ring {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.loader-spinner-ring div {
+    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: var(--primary-gold);
+    animation: spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+.loader-spinner-sm .loader-spinner-ring div {
+    border-width: 2px;
+}
+
+.loader-spinner-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+}
+
+.loader-spinner-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+    opacity: 0.8;
+}
+
+.loader-spinner-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+    opacity: 0.6;
+}
+
+.loader-spinner-ring div:nth-child(4) {
+    opacity: 0.4;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Dots Loader */
+.loader-dots {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.loader-dots div {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--primary-gold);
+    animation: dotPulse 1.4s infinite ease-in-out both;
+}
+
+.loader-dots div:nth-child(1) {
+    animation-delay: -0.32s;
+}
+
+.loader-dots div:nth-child(2) {
+    animation-delay: -0.16s;
+}
+
+@keyframes dotPulse {
+
+    0%,
+    80%,
+    100% {
+        transform: scale(0.6);
+        opacity: 0.5;
+    }
+
+    40% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Page Loader */
+.loader-page {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-primary);
+    z-index: var(--z-modal);
+}
+
+.loader-page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-6);
+}
+
+.loader-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader-logo-text {
+    font-family: var(--font-heading);
+    font-size: var(--text-4xl);
+    font-weight: var(--font-bold);
+    background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.loader-page-text {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    margin: 0;
+    animation: pulse 2s infinite;
+}
+
+/* Skeleton Loader */
+.loader-skeleton {
+    background: linear-gradient(90deg,
+            var(--bg-tertiary) 25%,
+            var(--bg-secondary) 50%,
+            var(--bg-tertiary) 75%);
+    background-size: 400% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Skeleton Text */
+.loader-skeleton-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+/* Skeleton Card */
+.loader-skeleton-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.loader-skeleton-card-body {
+    padding: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.loader-skeleton-card-footer {
+    margin-top: var(--space-3);
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Dark Theme */
+[data-theme="dark"] .loader-skeleton {
+    background: linear-gradient(90deg,
+            var(--primary-accent) 25%,
+            var(--primary-accent-light) 50%,
+            var(--primary-accent) 75%);
+    background-size: 400% 100%;
+}
+
+[data-theme="dark"] .loader-page {
+    background: var(--primary-dark);
+}

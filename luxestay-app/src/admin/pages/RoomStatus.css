@@ -1,0 +1,188 @@
+/* Room Status Styles */
+
+.room-status-page {
+    animation: fadeIn 0.4s ease-out;
+}
+
+.room-status-page .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-6);
+}
+
+.status-legend {
+    display: flex;
+    gap: var(--space-4);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    font-size: var(--text-xs);
+    color: var(--text-secondary);
+}
+
+.legend-item .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+
+.dot.clean {
+    background: #10B981;
+}
+
+.dot.dirty {
+    background: #EF4444;
+}
+
+.dot.inspecting {
+    background: #F59E0B;
+}
+
+/* Filter Bar */
+.filter-bar {
+    display: flex;
+    gap: var(--space-2);
+    margin-bottom: var(--space-6);
+    overflow-x: auto;
+    padding-bottom: 4px;
+}
+
+.dirty-btn:hover,
+.dirty-btn[class*="primary"] {
+    background-color: #EF4444;
+    border-color: #EF4444;
+    color: white;
+}
+
+.clean-btn:hover,
+.clean-btn[class*="primary"] {
+    background-color: #10B981;
+    border-color: #10B981;
+    color: white;
+}
+
+/* Grid */
+.room-status-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: var(--space-4);
+}
+
+/* Card */
+.room-status-card {
+    text-align: center;
+    padding: var(--space-4);
+    border-left: 4px solid transparent;
+    transition: transform 0.2s;
+}
+
+.room-status-card:hover {
+    transform: translateY(-2px);
+}
+
+.room-status-card.status-clean {
+    border-left-color: #10B981;
+}
+
+.room-status-card.status-dirty {
+    border-left-color: #EF4444;
+}
+
+.room-status-card.status-inspecting {
+    border-left-color: #F59E0B;
+}
+
+.room-status-card.status-out {
+    border-left-color: #6B7280;
+}
+
+.room-number {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.room-type {
+    font-size: 10px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    margin-bottom: var(--space-3);
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+}
+
+.status-clean .status-badge {
+    color: #10B981;
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.status-dirty .status-badge {
+    color: #EF4444;
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.status-inspecting .status-badge {
+    color: #F59E0B;
+    background: rgba(245, 158, 11, 0.1);
+}
+
+/* Actions */
+.quick-actions {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-3);
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+.room-status-card:hover .quick-actions {
+    opacity: 1;
+}
+
+.action-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    background: var(--bg-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    transition: all 0.2s;
+}
+
+.action-btn:hover {
+    transform: scale(1.1);
+}
+
+.action-btn.clean:hover {
+    color: #10B981;
+    border-color: #10B981;
+}
+
+.action-btn.dirty:hover {
+    color: #EF4444;
+    border-color: #EF4444;
+}
+
+.action-btn.inspect:hover {
+    color: #F59E0B;
+    border-color: #F59E0B;
+}

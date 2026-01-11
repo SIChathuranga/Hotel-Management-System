@@ -1,0 +1,174 @@
+/* ========================================
+   Card Component Styles
+   ======================================== */
+
+.card {
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+    overflow: hidden;
+}
+
+/* Variants */
+.card-default {
+    background: var(--bg-card);
+}
+
+.card-glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+}
+
+.card-outlined {
+    background: transparent;
+    border: 2px solid var(--border-color);
+    box-shadow: none;
+}
+
+.card-elevated {
+    box-shadow: var(--shadow-lg);
+    border: none;
+}
+
+.card-gradient {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-accent) 100%);
+    border: none;
+    color: white;
+}
+
+.card-gradient .card-title,
+.card-gradient .card-subtitle {
+    color: white;
+}
+
+.card-gradient .card-subtitle {
+    opacity: 0.8;
+}
+
+/* Padding Variants */
+.card-padding-none .card-body {
+    padding: 0;
+}
+
+.card-padding-small .card-body {
+    padding: var(--space-3);
+}
+
+.card-padding-medium .card-body {
+    padding: var(--space-5);
+}
+
+.card-padding-large .card-body {
+    padding: var(--space-8);
+}
+
+/* Hoverable */
+.card-hoverable {
+    cursor: default;
+}
+
+.card-hoverable:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+    border-color: var(--border-color-dark);
+}
+
+/* Clickable */
+.card-clickable {
+    cursor: pointer;
+}
+
+.card-clickable:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-gold);
+}
+
+.card-clickable:active {
+    transform: scale(0.99);
+}
+
+/* Card Header */
+.card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding: var(--space-5);
+    border-bottom: 1px solid var(--border-color-light);
+}
+
+.card-header-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.card-title {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+    margin: 0;
+    line-height: var(--leading-tight);
+}
+
+.card-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    margin: var(--space-1) 0 0 0;
+}
+
+.card-header-action {
+    flex-shrink: 0;
+}
+
+/* Card Body */
+.card-body {
+    padding: var(--space-5);
+}
+
+/* Card Footer */
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-5);
+    border-top: 1px solid var(--border-color-light);
+    background: var(--bg-secondary);
+}
+
+/* Dark Theme */
+[data-theme="dark"] .card {
+    background: var(--bg-card);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .card-hoverable:hover,
+[data-theme="dark"] .card-clickable:hover {
+    border-color: var(--primary-gold);
+}
+
+[data-theme="dark"] .card-footer {
+    background: var(--primary-accent);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .card-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .card-header-action {
+        margin-top: var(--space-3);
+    }
+
+    .card-padding-medium .card-body,
+    .card-padding-large .card-body {
+        padding: var(--space-4);
+    }
+}
